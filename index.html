@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiasharaBook | Business Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">BiasharaBook</div>
+        <p>Manage your business with confidence.</p>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <h1>Business Dashboard</h1>
+            <p>Record sales and track your daily performance.</p>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <p>Total Sales</p>
+                <h2 id="totalSales">KSh 0.00</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>Sales Recorded</p>
+                <h2 id="salesCount">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>Items Sold</p>
+                <h2 id="itemsSold">0</h2>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2>Record a Sale</h2>
+
+            <form id="salesForm">
+                <label for="product">Product name</label>
+                <input
+                    type="text"
+                    id="product"
+                    placeholder="e.g. Sugar"
+                    maxlength="100"
+                    required
+                >
+
+                <label for="quantity">Quantity sold</label>
+                <input
+                    type="number"
+                    id="quantity"
+                    min="1"
+                    max="1000000"
+                    step="1"
+                    placeholder="e.g. 3"
+                    required
+                >
+
+                <label for="price">Price per item (KSh)</label>
+                <input
+                    type="number"
+                    id="price"
+                    min="0.01"
+                    max="100000000"
+                    step="0.01"
+                    placeholder="e.g. 150"
+                    required
+                >
+
+                <button type="submit">Add Sale</button>
+            </form>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+            <div class="table-heading">
+                <h2>Sales History</h2>
+                <button id="clearButton" class="danger" type="button">
+                    Clear History
+                </button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesTable"></tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage">No sales recorded yet.</p>
+        </section>
+
+        <footer>
+            <p>BiasharaBook &copy; 2026. Simple business management.</p>
+        </footer>
+    </main>
+</body>
+</html>
